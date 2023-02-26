@@ -1,6 +1,6 @@
 package br.com.gptw.controller;
 
-import br.com.gptw.integration.GptwIntegration;
+import br.com.gptw.service.GptwService;
 import br.com.gptw.model.GptwBDO;
 import br.com.gptw.model.GptwDTO;
 import org.springframework.http.ResponseEntity;
@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class QuestionsController {
 
 
-    private final GptwIntegration gptwIntegration;
+    private final GptwService gptwService;
 
-    public QuestionsController(GptwIntegration gptwIntegration) {
-        this.gptwIntegration = gptwIntegration;
+    public QuestionsController(GptwService gptwService) {
+        this.gptwService = gptwService;
     }
 
     @GetMapping
     public ResponseEntity<GptwDTO> whyQuestion(@RequestBody GptwBDO gptwBDO){
-        GptwDTO gptwDTO = gptwIntegration.ask(gptwBDO);
+        GptwDTO gptwDTO = gptwService.ask(gptwBDO);
         return ResponseEntity.ok(gptwDTO);
     }
 }

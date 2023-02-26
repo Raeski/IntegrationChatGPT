@@ -1,4 +1,4 @@
-package br.com.gptw.integration;
+package br.com.gptw.service;
 
 import br.com.gptw.model.GptwBDO;
 import br.com.gptw.model.GptwDTO;
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GptwIntegration {
+public class GptwService {
     @Value("${gptw.token}")
     private String TOKEN;
 
